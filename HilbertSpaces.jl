@@ -1,5 +1,7 @@
 module HilbertSpaces
 
+using LinearAlgebra
+
 export HilbertSpace, H_mat
 #==============================================================================#
 """
@@ -10,7 +12,7 @@ export HilbertSpace, H_mat
         Returns an array containing the basis for the Hilbert space
     - H(::M) :: Array{Float64,2}
         Returns the energy matrix in the basis specific to the model
-    - N() :: Int64
+    - N(::M) :: Int64
         Returns the number of dof of the system
 """
 
@@ -41,5 +43,12 @@ function H_mat(M::HilbertSpace)
     return matrix
 end
 
+"""
+    Abstract function to compute the groundstate of the system
+"""
+
+function get_GS(M::HilbertSpace)
+    return eigvecs(compute_energy_matrix(H,B,args)[1])
+end
 #==============================================================================#
 end

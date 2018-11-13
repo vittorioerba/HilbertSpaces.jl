@@ -1,3 +1,17 @@
+module Models
+
+export
+#Types
+HeisenbergModel1D,
+#functions
+basis,
+H,
+N
+
+include("HilbertSpaces.jl")
+using .HilbertSpaces
+
+#==============================================================================#
 """
     Concrete implementation of HilbertSpace for the 1D quantum Heisenberg model with transverse magnetic field h (in x direction) and couplings (Jx,Jy,Jz) for the three n.n. interactions.
     The basis chosen is the slater basis for the single particle z-directed spin basis.
@@ -44,6 +58,11 @@ function H(M::HeisenbergModel1D, A::Int64, B::Int64)
     end
 
     return energy
-end    
+end   
 
+function N(M::HeisenbergModel1D) 
+    return M.n
+end
 
+#==============================================================================#
+end
