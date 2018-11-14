@@ -1,6 +1,6 @@
 # HilbertSpaces.jl
 
-Julia version: 1.0.2
+[https://img.shields.io/badge/Julia-1.0.2v-a270ba.svg]()
 
 **HilbertSpaces.jl** is a draft for a Julia library for exact diagonalization and DMRG methods.
 It's an early stage, work in progress library.
